@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.left{
+    width: 25vw;
+}
+.right{
+    width: 75vw;
+}
+.home ul li{
+    list-style-type: none;
+    width: 1rem;
+    gap: 15px;
+}   
