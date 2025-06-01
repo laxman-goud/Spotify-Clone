@@ -1,9 +1,11 @@
 *{
     padding: 0;
     margin: 0;
+    /* border: 1px solid red; */
 }
 .left{
     width: 25vw;
+    padding: 10px;
 }
 .right{
     width: 75vw;
@@ -12,4 +14,5 @@
     list-style-type: none;
     width: 1rem;
     gap: 15px;
-}   
+    padding-top: 14px;
+} 
