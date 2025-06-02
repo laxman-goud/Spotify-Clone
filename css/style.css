@@ -15,4 +15,21 @@
     width: 1rem;
     gap: 15px;
     padding-top: 14px;
+    font-weight: bold;
 } 
+.heading{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 14px;
+    font-weight: bold;
+    font-size: .7rem;
+}
+.heading>img{
+    width: 1.2rem;
+}
+.heading>span{
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: gray;
+}
