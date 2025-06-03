@@ -1,7 +1,8 @@
 *{
     padding: 0;
     margin: 0;
-    /* border: 1px solid red; */
+    box-sizing: border-box;
+    border: 1px solid red;
 }
 .left{
     width: 25vw;
@@ -31,5 +32,18 @@
 .heading>span{
     margin-left: auto;
     font-size: 1.2rem;
+    color: gray;
+}
+.library{
+    height: 80vh;
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 13px;
+    gap: 14px;
+    margin-top: auto;
+}
+.footer a{
     color: gray;
 }
