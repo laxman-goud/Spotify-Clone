@@ -72,6 +72,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin: 25px;
 }
 .spotify-playlists .card{
     width: 210px;
@@ -85,4 +86,22 @@
 .card img{
     width: 100%;
     object-fit: contain;
+}
+.card{
+    position: relative;
+}
+.card .play-button{
+    position: absolute;
+    background-color: #00FF00;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    top: 50%;
+    right: 10%;
+}
+.card .play-button img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transform: translate(-1%,-24%);
 }
