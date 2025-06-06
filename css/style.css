@@ -66,8 +66,42 @@
 .header > *{
     padding: 1.2rem;
 }
+.header .buttons{
+    display: flex;
+    gap: 1.4rem;
+}
+.header .buttons .signupBtn{
+    background-color: rgb(25 25 25);
+    color: rgb(129, 129, 129);
+    font-size: .9rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.header .buttons .signupBtn:hover{
+    color: white;
+    font-size: 1rem;
+}
+.header .buttons .loginBtn{
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    font-size: .9rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 6rem;
+    height: 2rem;
+}
+.header .buttons .loginBtn:hover{
+    font-weight: bold;
+    border: 2px solid rgb(0, 0, 0);
+}
 .spotify-playlists{
     padding: 16px;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 .spotify-playlists .card-container{
     display: flex;
