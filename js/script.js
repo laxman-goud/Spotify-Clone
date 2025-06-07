@@ -5,7 +5,6 @@ async function getSongs() {
     div.innerHTML = response;
     
     let as = div.getElementsByTagName('a');
-    console.log(as);
     
     let songs = [];
     for (let index = 0; index < as.length; index++) {
