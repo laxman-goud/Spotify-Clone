@@ -10,7 +10,7 @@
     padding: 10px;
 }
 .right{
-    width: 75vw;
+    width: 78vw;
     position: relative;
     background-color: rgb(17, 17, 17);
 }
@@ -171,6 +171,8 @@
 .playBar{
     position: absolute;
     bottom: 12px;
-    background-color: rgb(140, 214, 103);
-    width: 100%;
+    background-color: rgb(75, 78, 73);
+    width: 98%;
+    border-radius: 8px;
+    margin: 0 1rem;
 }
