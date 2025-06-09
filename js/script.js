@@ -20,6 +20,21 @@ async function getSongs() {
 async function main() {
     let songs = await getSongs();
     console.log(songs); 
+
+    let songsUL = document.querySelector('.song-list').getElementsByTagName('ul')[0];
+    for(const song of songs){
+        let songName = song.split('/');
+        songsUL.innerHTML += `<li>
+                                <img src="img/music.svg" alt="music" class="
+                                invert">
+                                <div class="music-info">
+                                    <div class="song-name">${songName[songName.length-1].replace('.mp3','')}</div>
+                                    <div class="song-artist">song artist</div>
+                                </div>
+                                <span>Play Now</span>
+                                <img src="img/play.svg" alt="play" class="invert">
+                            </li>`
+    }
 }
 
 main();
