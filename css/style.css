@@ -175,4 +175,24 @@
     width: 98%;
     border-radius: 8px;
     margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.seek-bar{
+    position: relative;
+    width: 100%;
+    height: 3px;
+    border-radius: 50px;
+    background-color: white;
+    }
+.circle{
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    background-color: #fff;
+    border-radius: 50px;
+    top: -7px;
+    left: 0%;
+    transition: left 0.5s;
 }
