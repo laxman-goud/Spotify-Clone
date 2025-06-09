@@ -19,7 +19,7 @@ async function getSongs() {
 
 async function main() {
     let songs = await getSongs();
-    console.log(songs); 
+    // console.log(songs); 
 
     let songsUL = document.querySelector('.song-list').getElementsByTagName('ul')[0];
     for(const song of songs){
@@ -32,9 +32,16 @@ async function main() {
                                     <div class="song-artist">song artist</div>
                                 </div>
                                 <span>Play Now</span>
-                                <img src="img/play.svg" alt="play" class="invert">
+                                <img src="img/play.svg" alt="play" class="invert play">
                             </li>`
     }
+    let play = document.querySelectorAll('.play');
+
+    Array.from(play).forEach(element => {
+        element.addEventListener('click',()=>{
+            console.log(element);
+        })
+    });
 }
 
 main();
