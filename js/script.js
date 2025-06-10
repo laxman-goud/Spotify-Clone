@@ -1,3 +1,5 @@
+let audio = new Audio();
+
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/");
     let response = await a.text(); 
@@ -10,7 +12,7 @@ async function getSongs() {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith('.mp3')) {
-            songs.push(element.href); 
+            songs.push(element.href);
         }
     }
     
@@ -19,29 +21,44 @@ async function getSongs() {
 
 async function main() {
     let songs = await getSongs();
-    // console.log(songs); 
 
-    let songsUL = document.querySelector('.song-list').getElementsByTagName('ul')[0];
-    for(const song of songs){
-        let songName = song.split('/');
-        songsUL.innerHTML += `<li>
-                                <img src="img/music.svg" alt="music" class="
-                                invert">
-                                <div class="music-info">
-                                    <div class="song-name">${songName[songName.length-1].replace('.mp3','')}</div>
-                                    <div class="song-artist">song artist</div>
-                                </div>
-                                <span>Play Now</span>
-                                <img src="img/play.svg" alt="play" class="invert play">
-                            </li>`
+    let songsUL = document.querySelector('.song-list ul');
+    if (!songsUL) {
+        console.error("song-list or ul not found in DOM");
+        return;
     }
-    let play = document.querySelectorAll('.play');
 
-    Array.from(play).forEach(element => {
-        element.addEventListener('click',()=>{
-            console.log(element);
-        })
+    songs.forEach(song => {
+        let SongFullName = decodeURIComponent(song.split('/').pop()).replace('.mp3', '');
+        let [songName, songArtist] = SongFullName.split('-');
+
+        songsUL.innerHTML += `
+            <li>
+                <img src="img/music.svg" alt="music" class="invert">
+                <div class="music-info">
+                    <div class="song-name">${songName || 'Unknown'}</div>
+                    <div class="song-artist">${songArtist || 'Unknown'}</div>
+                </div>
+                <span>Play Now</span>
+                <img src="img/play.svg" alt="play" class="invert play">
+            </li>`;
+    });
+
+    document.querySelectorAll('.play').forEach(element => {
+        element.addEventListener('click', () => {
+            audio.pause();
+            const songName = element.parentElement.querySelector('.song-name').innerText.trim();
+            const songArtist = element.parentElement.querySelector('.song-artist').innerText.trim();
+            playSong(`${songName} - ${songArtist}`);
+        });
     });
 }
 
 main();
+
+function playSong(songFileName) {
+    const songUrl = `http://127.0.0.1:5500/songs/${encodeURIComponent(songFileName)}.mp3`;
+    console.log("Playing:", songUrl);
+    audio = new Audio(songUrl);
+    audio.play();
+}
