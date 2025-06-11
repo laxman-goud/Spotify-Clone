@@ -171,13 +171,16 @@
 .playBar{
     position: absolute;
     bottom: 12px;
-    background-color: rgb(75, 78, 73);
+    background-color: rgb(30, 39, 38);
     width: 98%;
     border-radius: 8px;
     margin: 0 1rem;
     display: flex;
     flex-direction: column;
     gap: 18px;
+}
+.song-info-controls{
+    margin: 0 12px;
 }
 .seek-bar{
     position: relative;

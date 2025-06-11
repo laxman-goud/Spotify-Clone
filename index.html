@@ -76,10 +76,22 @@
                 </div>
             </div>
             <div class="playBar p-1">
-                <div class="song-buttons flex justify-center">
-                    <img src="img/prevsong.svg" alt="prevsong" class="invert">
-                    <img src="img/play.svg" alt="play" class="invert">
-                    <img src="img/nextsong.svg" alt="nextsong" class="invert">
+                <div class="song-info-controls flex space-between items-center">
+                    <div class="song-info">
+                        <span class="song-name">Hello</span>
+                    </div>
+                    <div class="song-controls">
+                        <img src="img/prevsong.svg" alt="prevsong" class="invert">
+                        <img src="img/play.svg" alt="play" class="invert">
+                        <img src="img/nextsong.svg" alt="nextsong" class="invert">
+                    </div>
+                    <div class="song-adjustments flex items-center">
+                        <span class="song-duration">00:78/01:27</span>
+                        <div class="volume-adjustment">
+                            <img src="img/volume.svg" alt="volume">
+                            <input type="range" min="0" max="100">
+                        </div>
+                    </div>
                 </div>
                 <div class="seek-bar">
                     <div class="circle"></div>

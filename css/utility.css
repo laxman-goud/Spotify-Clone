@@ -30,7 +30,9 @@
 .m-1{
     margin: 5px;
 }
-
+.space-between{
+    justify-content: space-between;
+}
 body {
   scrollbar-width: thin;            /* Firefox */
   scrollbar-color: #444 #111;       /* Firefox */
