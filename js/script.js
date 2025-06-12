@@ -48,13 +48,17 @@ async function main() {
 
     document.querySelectorAll('.play').forEach(element => {
         element.addEventListener('click', () => {
-            playPause.src = 'img/play.svg';
-            mainPlayEl.src = 'img/play.svg';
-            audio.pause();
-            const songName = element.parentElement.querySelector('.song-name').innerText.trim();
-            const songArtist = element.parentElement.querySelector('.song-artist').innerText.trim();
-            playPause = element;
-            playSong(`${songName} - ${songArtist}`);
+            if(audio.paused){
+                const songName = element.parentElement.querySelector('.song-name').innerText.trim();
+                const songArtist = element.parentElement.querySelector('.song-artist').innerText.trim();
+                playPause = element;
+                playSong(`${songName} - ${songArtist}`);
+            }
+            else{
+                audio.pause();
+                playPause.src = 'img/play.svg';
+                mainPlayEl.src = 'img/play.svg';
+            }
         });
     });
 } 
