@@ -65,11 +65,11 @@
     padding: 7px;
 }
 .song-list ul li .music-info{
-    font-size: 13px;
+    font-size: 11px;
 }
 .song-list ul li span{
     margin-left: auto;
-    font-size: 12px;
+    font-size: 10px;
 }
 .footer{
     display: flex;
