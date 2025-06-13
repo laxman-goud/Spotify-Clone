@@ -42,7 +42,7 @@ async function main() {
                     <div class="song-artist">${songArtist || 'Unknown'}</div>
                 </div>
                 <span>Play Now</span>
-                <img src="img/play.svg" alt="play" class="invert play">
+                <img src="img/play.svg" alt="play" class="invert play cursor-pointer">
             </li>`;
     });
 
@@ -54,11 +54,11 @@ async function main() {
 
             if (audio.paused || audio.src.indexOf(fullSongName) === -1) {
                 playPause = element;
-                playSong(fullSongName); 
+                playSong(fullSongName);
                 audio.addEventListener('loadedmetadata', () => {
                     const duration = formatTime(audio.duration);
                     updatePlayBar(songName, songArtist, duration);
-                }, { once: true }); 
+                }, { once: true });
 
                 playPause.src = 'img/pause.svg';
                 mainPlayEl.src = 'img/pause.svg';
@@ -85,12 +85,18 @@ function playSong(songFileName) {
 }
 
 function updatePlayBar(songName, songArtist, songDuration) {
-    console.log(songName,songArtist,songDuration);
+    console.log(songName, songArtist, songDuration);
     let playBar_songName = document.querySelector('.playBar-song-name');
     let playBar_songDuration = document.querySelector('.song-duration');
     playBar_songName.innerText = songName + ' - ' + songArtist;
     playBar_songDuration.innerText = songDuration;
-}  
+
+    audio.addEventListener('timeupdate', () => {
+        let progressPercent = (audio.currentTime / audio.duration) * 99;
+        document.querySelector('.circle').style.left = progressPercent + '%';
+    });
+
+}
 
 function formatTime(seconds) {
     let min = Math.floor(seconds / 60);

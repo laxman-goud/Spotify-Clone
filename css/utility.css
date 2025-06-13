@@ -33,6 +33,9 @@
 .space-between{
     justify-content: space-between;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 body {
   scrollbar-width: thin;            /* Firefox */
   scrollbar-color: #444 #111;       /* Firefox */
