@@ -137,6 +137,11 @@ songControls.addEventListener('click', (e) => {
     }
 });
 
+const volumeSlider = document.getElementById('volumeControl');
+
+volumeSlider.addEventListener('input', function () {
+    audio.volume = volumeSlider.value / 100;
+});
 
 function formatTime(seconds) {
     let min = Math.floor(seconds / 60);
