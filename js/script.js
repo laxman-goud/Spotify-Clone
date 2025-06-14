@@ -1,6 +1,6 @@
 let audio = new Audio();
-let playPause = document.querySelector('.play');
-let mainPlayEl = document.querySelector('.play');
+let playPause = document.querySelector('.play-pause');
+let mainPlayEl = document.querySelector('.play-pause');
 
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/");
@@ -91,25 +91,52 @@ function updatePlayBar(songName, songArtist, songDuration) {
     playBar_songName.innerText = songName + ' - ' + songArtist;
     playBar_songDuration.innerText = songDuration;
     console.log(songDuration);
-    
+
 
     audio.addEventListener('timeupdate', () => {
         let progressPercent = (audio.currentTime / audio.duration) * 99;
         document.querySelector('.circle').style.left = progressPercent + '%';
-        playBar_songDuration.innerText = formatTime(audio.currentTime) +' / ' + songDuration;
+        playBar_songDuration.innerText = formatTime(audio.currentTime) + ' / ' + songDuration;
     });
 
 }
 
-document.querySelector('.seek-bar').addEventListener('click',(e)=>{
+document.querySelector('.seek-bar').addEventListener('click', (e) => {
     const circle = document.querySelector('.circle');
-    let curPos = (e.offsetX/e.target.getBoundingClientRect().width)*99;
+    let curPos = (e.offsetX / e.target.getBoundingClientRect().width) * 99;
     audio.currentTime = (audio.duration * curPos) / 100;
     console.log((audio.duration) * curPos / 100);
-    
+
     circle.style.left = curPos + '%';
-    
+
 })
+
+songControls = document.querySelector('.song-controls');
+
+songControls.addEventListener('click', (e) => {
+    targetBtn = e.target;
+    if(targetBtn && !audio.paused) {
+        if (targetBtn.alt == 'play-pause'){
+            if (audio.paused) {
+                audio.play();
+                targetBtn.src = 'img/pause.svg';
+            } else {
+                audio.pause();
+                targetBtn.src = 'img/play.svg';
+            }
+        }
+        else if (targetBtn.alt == 'prevsong') {
+            console.log('previous song');
+        }
+        else if (targetBtn.alt == 'nextsong') {
+            console.log('next song');
+        }
+    }
+    else {
+        console.log('Invalid');
+    }
+});
+
 
 function formatTime(seconds) {
     let min = Math.floor(seconds / 60);
