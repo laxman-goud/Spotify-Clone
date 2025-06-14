@@ -90,13 +90,26 @@ function updatePlayBar(songName, songArtist, songDuration) {
     let playBar_songDuration = document.querySelector('.song-duration');
     playBar_songName.innerText = songName + ' - ' + songArtist;
     playBar_songDuration.innerText = songDuration;
+    console.log(songDuration);
+    
 
     audio.addEventListener('timeupdate', () => {
         let progressPercent = (audio.currentTime / audio.duration) * 99;
         document.querySelector('.circle').style.left = progressPercent + '%';
+        playBar_songDuration.innerText = formatTime(audio.currentTime) +' / ' + songDuration;
     });
 
 }
+
+document.querySelector('.seek-bar').addEventListener('click',(e)=>{
+    const circle = document.querySelector('.circle');
+    let curPos = (e.offsetX/e.target.getBoundingClientRect().width)*99;
+    audio.currentTime = (audio.duration * curPos) / 100;
+    console.log((audio.duration) * curPos / 100);
+    
+    circle.style.left = curPos + '%';
+    
+})
 
 function formatTime(seconds) {
     let min = Math.floor(seconds / 60);
