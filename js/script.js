@@ -148,6 +148,11 @@ hamburger.addEventListener('click', ()=>{
     document.querySelector('.left').style.left = '0%';
 })
 
+const close = document.querySelector('.close');
+close.addEventListener('click', ()=>{
+    document.querySelector('.left').style.left = '-50%';
+})
+
 function formatTime(seconds) {
     let min = Math.floor(seconds / 60);
     let sec = Math.floor(seconds % 60);
