@@ -140,18 +140,21 @@
     padding: 16px;
     max-height: 80vh;
     overflow-y: scroll;
+    width: 100%;
 }
 .spotify-playlists .card-container{
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 25px;
 }
 .spotify-playlists .card{
-    width: 210px;
     padding: 10px;
     border-radius: 4px;
     background-color: rgb(36 36 36);
+    position: relative;
+    width: clamp(250px,50%,300px);
 }
 .card > *{
     padding-top: 10px;
@@ -159,9 +162,6 @@
 .card img{
     width: 100%;
     object-fit: contain;
-}
-.card{
-    position: relative;
 }
 .card .play-button{
     position: absolute;
@@ -224,6 +224,7 @@
         height: 100%;
     }
     .left .close{
+        display: block;
         position: absolute;
         left: 280px;
         top: 27px;
@@ -236,5 +237,21 @@
     }
     .header .hamburger{
         display: inline;
+    }
+}
+
+@media (max-width:780px) {
+    .playBar{
+        width: 94%;
+    }
+    .song-info-controls{
+        flex-direction: column;
+    }
+    .card-container{
+        margin: 0;
+        justify-content: center;
+    }
+    .card{
+        width: 400px;
     }
 }
