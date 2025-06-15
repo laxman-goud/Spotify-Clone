@@ -20,6 +20,9 @@
     position: relative;
     background-color: rgb(17, 17, 17);
 }
+.left .close{
+    display: none;
+}
 .home{
     height: fit-content;
 }
@@ -213,7 +216,7 @@
 @media (max-width:1400px) {
     .left{
         position: absolute;
-        left: -50%;
+        left: -110%;
         z-index: 1;
         transition: left .8s ease;
         width: 340px;

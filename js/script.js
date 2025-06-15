@@ -150,7 +150,7 @@ hamburger.addEventListener('click', ()=>{
 
 const close = document.querySelector('.close');
 close.addEventListener('click', ()=>{
-    document.querySelector('.left').style.left = '-50%';
+    document.querySelector('.left').style.left = '-110%';
 })
 
 function formatTime(seconds) {
