@@ -2,6 +2,8 @@ let audio = new Audio();
 let playPause = document.querySelector('.play-pause');
 let mainPlayEl = document.querySelector('.play-pause');
 
+let songsList = [];
+
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/");
     let response = await a.text();
@@ -22,15 +24,15 @@ async function getSongs() {
 }
 
 async function main() {
-    let songs = await getSongs();
+    songsList = await getSongs();
 
     let songsUL = document.querySelector('.song-list ul');
     if (!songsUL) {
         console.error("song-list or ul not found in DOM");
         return;
     }
-
-    songs.forEach(song => {
+    
+    songsList.forEach(song => {
         let SongFullName = decodeURIComponent(song.split('/').pop()).replace('.mp3', '');
         let [songName, songArtist] = SongFullName.split('-');
 
@@ -129,7 +131,12 @@ songControls.addEventListener('click', (e) => {
             console.log('previous song');
         }
         else if (targetBtn.alt == 'nextsong') {
-            console.log('next song');
+            curSongIndex = songsList.indexOf(audio.src);
+            audio.pause();
+
+            console.log("Playing:", songsList[++curSongIndex]);
+            audio = new Audio(songsList[++curSongIndex]);
+            audio.play();
         }
     }
     else {
