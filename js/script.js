@@ -1,8 +1,10 @@
-let audio = new Audio();
 let playPause = document.querySelector('.play-pause');
 let mainPlayEl = document.querySelector('.play-pause');
 
 let songsList = [];
+
+let curSongIndex = 0;
+let audio = new Audio();
 
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/");
@@ -25,6 +27,7 @@ async function getSongs() {
 
 async function main() {
     songsList = await getSongs();
+    audio.src = songsList[curSongIndex];
 
     let songsUL = document.querySelector('.song-list ul');
     if (!songsUL) {
@@ -113,12 +116,13 @@ document.querySelector('.seek-bar').addEventListener('click', (e) => {
 
 })
 
-songControls = document.querySelector('.song-controls');
+const songControls = document.querySelector('.song-controls');
 
 songControls.addEventListener('click', (e) => {
-    targetBtn = e.target;
-    if(targetBtn && !audio.paused) {
-        if (targetBtn.alt == 'play-pause'){
+    const targetBtn = e.target;
+
+    if (targetBtn && targetBtn.alt) {
+        if (targetBtn.alt === 'play-pause') {
             if (audio.paused) {
                 audio.play();
                 targetBtn.src = 'img/pause.svg';
@@ -126,23 +130,30 @@ songControls.addEventListener('click', (e) => {
                 audio.pause();
                 targetBtn.src = 'img/play.svg';
             }
-        }
-        else if (targetBtn.alt == 'prevsong') {
-            console.log('previous song');
-        }
-        else if (targetBtn.alt == 'nextsong') {
-            curSongIndex = songsList.indexOf(audio.src);
-            audio.pause();
-
-            console.log("Playing:", songsList[++curSongIndex]);
-            audio = new Audio(songsList[++curSongIndex]);
+        } else if (targetBtn.alt === 'prevsong') {
+            curSongIndex = (curSongIndex - 1 + songsList.length) % songsList.length;
+            audio.src = songsList[curSongIndex];
             audio.play();
+            updatePlayPauseButton(); 
+        } else if (targetBtn.alt === 'nextsong') {
+            curSongIndex = (curSongIndex + 1) % songsList.length;
+            audio.src = songsList[curSongIndex];
+            audio.play();
+            updatePlayPauseButton(); 
         }
-    }
-    else {
-        console.log('Invalid');
+    } else {
+        console.log('Invalid button or no action detected');
     }
 });
+
+function updatePlayPauseButton() {
+    const playPauseBtn = document.querySelector('img[alt="play-pause"]');
+    if (audio.paused) {
+        playPauseBtn.src = 'img/play.svg';
+    } else {
+        playPauseBtn.src = 'img/pause.svg';
+    }
+}
 
 const volumeSlider = document.getElementById('volumeControl');
 
