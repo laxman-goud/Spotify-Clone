@@ -29,6 +29,16 @@ async function main() {
     songsList = await getSongs();
     audio.src = songsList[curSongIndex];
 
+    let abc = songsList[0].split('/');
+    const songName1 = `${abc[abc.length-1]}`.replaceAll('%20',' ').replaceAll('%22',',').replace('.mp3','');
+    // let duration;
+    audio.addEventListener("loadedmetadata", () => {
+    let duration = audio.duration;
+        updatePlayBar(songName1,'',formatTime(duration));  
+    });
+
+    
+    
     let songsUL = document.querySelector('.song-list ul');
     if (!songsUL) {
         console.error("song-list or ul not found in DOM");
@@ -89,7 +99,7 @@ function playSong(songFileName) {
     audio.play();
 }
 
-function updatePlayBar(songName, songArtist, songDuration) {
+function updatePlayBar(songName, songArtist='', songDuration) {
     console.log(songName, songArtist, songDuration);
     let playBar_songName = document.querySelector('.playBar-song-name');
     let playBar_songDuration = document.querySelector('.song-duration');
