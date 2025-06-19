@@ -210,6 +210,15 @@
     left: 0%;
     transition: left 0.5s ease;
 }
+.song-info{
+    width: 30%;
+}
+.song-adjustments{
+    margin-left: auto;
+}
+.song-controls{
+    margin: 0 auto 0 auto;
+}
 
 
 @media (max-width:1400px) {
@@ -238,6 +247,9 @@
     .header .hamburger{
         display: inline;
     }
+    .song-adjustments{
+        margin-left: 0;
+    }
 }
 
 @media (max-width:780px) {
@@ -246,6 +258,7 @@
     }
     .song-info-controls{
         flex-direction: column;
+        gap: 7px;
     }
     .card-container{
         margin: 0;
@@ -253,5 +266,8 @@
     }
     .card{
         width: 400px;
+    }
+    .song-info{
+        width: fit-content;
     }
 }
