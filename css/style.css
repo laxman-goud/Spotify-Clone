@@ -76,10 +76,12 @@
 }
 .song-list ul li .music-info{
     font-size: 11px;
+    width: 102px;
 }
 .song-list ul li span{
     margin-left: auto;
     font-size: 10px;
+    width: 45px;
 }
 .footer{
     display: flex;
@@ -168,16 +170,19 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    top: 50%;
-    right: 10%;
+    top: 58%;
+    right: 8%;
     opacity: 0;
-    transition: all 1s ease-out;
+    transition: all .4s ease-out;
 }
 .card .play-button img{
     width: 35px;
     height: 35px;
     border-radius: 50%;
     transform: translate(14%,-9%);
+}
+.card:hover .play-button{
+    opacity: 1;
 }
 .playBar{
     position: absolute;
@@ -243,9 +248,11 @@
     .right{
         width: 100%;
         margin-top: 0;
+        margin: 0;
     }
     .header .hamburger{
         display: inline;
+        margin-right: 57px;
     }
     .song-adjustments{
         margin-left: 0;
@@ -253,6 +260,9 @@
 }
 
 @media (max-width:780px) {
+    .header .hamburger{
+        margin-right: 25px;
+    }
     .playBar{
         width: 94%;
     }
