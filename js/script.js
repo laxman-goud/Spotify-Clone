@@ -49,20 +49,29 @@ async function main() {
             </li>`;
     });
 
-    // Song list play button logic
+    let prevBtn = null;
+
     document.querySelectorAll('.play').forEach((btn, index) => {
         btn.addEventListener('click', () => {
             if (curSongIndex === index && !audio.paused) {
                 audio.pause();
+                btn.src = 'img/play.svg';
                 updatePlayPauseUI(true);
             } else {
+                if (prevBtn && prevBtn !== btn) {
+                    prevBtn.src = 'img/play.svg';
+                }
+
                 curSongIndex = index;
                 loadSong(curSongIndex);
                 audio.play();
+                btn.src = 'img/pause.svg';
+                prevBtn = btn;
                 updatePlayPauseUI(false);
             }
         });
     });
+
 
     let totalDurationFormatted = '';
 
