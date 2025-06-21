@@ -200,6 +200,20 @@ document.getElementById('volumeControl').addEventListener('input', (e) => {
     audio.volume = e.target.value / 100;
 });
 
+// volume mute
+let volume = document.querySelector('.volume');
+
+volume.addEventListener('click', () => {
+    if (volume.src.includes('volume.svg')) {
+        volume.src = 'img/mute.svg';
+        audio.muted = true;
+    } else {
+        volume.src = 'img/volume.svg';
+        audio.muted = false;
+    }
+});
+
+
 // Hamburger menu
 document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.left').style.left = '0%';
