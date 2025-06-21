@@ -155,7 +155,7 @@
     border-radius: 4px;
     background-color: rgb(36 36 36);
     position: relative;
-    width: clamp(200px,50%,230px);
+    width: clamp(220px,70%,250px);
     transition: background .7s ease;
 }
 .spotify-playlists .card:hover{

@@ -21,11 +21,40 @@ async function getSongs(folder) {
     return songs;
 }
 
+async function displayAlbums() {
+    let cardContainer = document.querySelector('.card-container');
+
+    let a = await fetch(`http://127.0.0.1:5500/songs`);
+    let response = await a.text();
+    let div = document.createElement('div');
+    div.innerHTML = response;
+    let anchors = div.getElementsByTagName('a');
+    Array.from(anchors).forEach(async e => {
+        if (e.href.includes('/songs/')) {
+            let folder = e.href.split('/').slice(-1)[0];
+            let info = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let responseInfo = await info.json();
+            cardContainer.innerHTML += 
+            `<div data-folder="cs" class="card cursor-pointer">
+                <div class="play-button">
+                    <img src="img/play.svg" alt="play">
+                </div>
+                <img src="${responseInfo.cover}" alt="">
+                <h3>${responseInfo.title}</h3>
+                <p>${responseInfo.description}</p>
+            </div>`;
+        }
+    })
+}
+
 async function main() {
     songsList = await getSongs('cs');
     if (!songsList.length) return;
 
     loadSong(curSongIndex);
+
+    // 🔥Display Albums
+    displayAlbums();
 
     // Populate song list
     let songsUL = document.querySelector('.song-list ul');
@@ -155,7 +184,7 @@ songControls.addEventListener('click', (e) => {
 });
 
 Array.from(document.querySelectorAll('.card')).forEach(item => {
-    item.addEventListener('click', async()=>{
+    item.addEventListener('click', async () => {
         console.log(item.dataset.folder);
         let songs = await getSongs(`${item.dataset.folder}`);
         console.log(songs);
