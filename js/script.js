@@ -5,8 +5,8 @@ let songsList = [];
 let curSongIndex = 0;
 let audio = new Audio();
 
-async function getSongs() {
-    let a = await fetch("http://127.0.0.1:5500/songs/");
+async function getSongs(folder) {
+    let a = await fetch(`http://127.0.0.1:5500/songs/${folder}`);
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
@@ -22,7 +22,7 @@ async function getSongs() {
 }
 
 async function main() {
-    songsList = await getSongs();
+    songsList = await getSongs('cs');
     if (!songsList.length) return;
 
     loadSong(curSongIndex);
@@ -154,6 +154,13 @@ songControls.addEventListener('click', (e) => {
     }
 });
 
+Array.from(document.querySelectorAll('.card')).forEach(item => {
+    item.addEventListener('click', async()=>{
+        console.log(item.dataset.folder);
+        let songs = await getSongs(`${item.dataset.folder}`);
+        console.log(songs);
+    })
+});
 function updatePlayPauseUI(paused) {
     const playPauseIcon = paused ? 'img/play.svg' : 'img/pause.svg';
     document.querySelectorAll('img[alt="play-pause"]').forEach(el => el.src = playPauseIcon);
