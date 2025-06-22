@@ -11,6 +11,7 @@
     width: 100vw;
 }
 .left{
+    min-width: 330px;
     width: 22%;
     height: 100%;
     padding: 10px;
@@ -95,8 +96,6 @@
     color: gray;
 }
 .header{
-    display: flex;
-    justify-content: space-between;
     background-color: rgb(25 25 25);
 }
 .header > *{
@@ -157,6 +156,7 @@
     position: relative;
     width: clamp(220px,70%,250px);
     transition: background .7s ease;
+    transition: all .5s ease;
 }
 .spotify-playlists .card:hover{
     background-color: rgb(22, 22, 22);
