@@ -141,22 +141,29 @@
     max-height: 80vh;
     overflow-y: scroll;
     width: 100%;
+    overflow-x: hidden;
 }
 .spotify-playlists .card-container{
-    width: 90%;
+    overflow-x: hidden;
+    width: 97%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 25px;
+    gap: 15px;
+    margin: 25px 0 25px 25px;
+    transition: all .5s ease;
 }
 .spotify-playlists .card{
     padding: 10px;
     border-radius: 4px;
     background-color: rgb(36 36 36);
     position: relative;
-    width: clamp(220px,70%,250px);
+    width: 19%;
     transition: background .7s ease;
     transition: all .5s ease;
+    flex: 1 1 220px; /* min width */
+    max-width: 280px;
+    box-sizing: border-box;
 }
 .spotify-playlists .card:hover{
     background-color: rgb(22, 22, 22);
@@ -166,7 +173,7 @@
 }
 .card img{
     width: 100%;
-    height: 220px;
+    height: auto;
     object-fit: contain;
 }
 .card .play-button{
@@ -278,14 +285,23 @@
         flex-direction: column;
         gap: 7px;
     }
+    .spotify-playlists{
+        padding-bottom: 90px;
+    }
     .card-container{
         margin: 0;
-        justify-content: center;
-    }
-    .card{
-        width: 400px;
     }
     .song-info{
         width: fit-content;
+    }
+}
+
+@media (max-width: 583px) {
+    .card-container{
+        justify-content: center;
+    }
+    .card-container .card{
+        min-width:  280px;
+        max-width: 80%;
     }
 }
