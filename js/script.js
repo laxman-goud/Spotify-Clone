@@ -145,7 +145,7 @@ async function main() {
     audio.addEventListener("timeupdate", () => {
         let currentFormatted = formatTime(audio.currentTime);
         document.querySelector('.circle').style.left = (audio.currentTime / audio.duration) * 99 + '%';
-        document.querySelector('.song-duration').innerText = `${currentFormatted} / ${totalDurationFormatted}`;
+        document.querySelector('.song-duration').innerText = `${currentFormatted} / ${formatTime(audio.duration)}`;
     });
 }
 
@@ -154,7 +154,7 @@ main();
 function loadSong(index) {
     audio.src = songsList[index];
     let [name, artist] = getSongNameAndArtist(songsList[index]);
-    updatePlayBar(name, artist, "...");
+    updatePlayBar(name, artist, '...');
 }
 
 function getSongNameAndArtist(songUrl) {
@@ -230,6 +230,8 @@ function updatePlayPauseUI(paused) {
 // Volume control
 document.getElementById('volumeControl').addEventListener('input', (e) => {
     audio.volume = e.target.value / 100;
+    volume.src = 'img/volume.svg';
+    audio.muted = false;
 });
 
 // volume mute
