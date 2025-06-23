@@ -164,6 +164,7 @@
     flex: 1 1 220px; /* min width */
     max-width: 280px;
     box-sizing: border-box;
+    height: fit-content;
 }
 .spotify-playlists .card:hover{
     background-color: rgb(22, 22, 22);
@@ -171,10 +172,9 @@
 .card > *{
     padding-top: 10px;
 }
-.card img{
+.card img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    object-fit:contain; 
 }
 .card .play-button{
     position: absolute;
@@ -271,6 +271,9 @@
     }
     .song-adjustments{
         margin-left: 0;
+    }
+    .spotify-playlists{
+        padding-bottom: 90px;
     }
 }
 
