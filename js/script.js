@@ -90,6 +90,7 @@ async function AlbumsListeners() {
                 </li>`;
             }
 
+            document.querySelector('.left').style.left = '0%';
             loadSong(curSongIndex);
             audio.play();
             updatePlayPauseUI(false);
