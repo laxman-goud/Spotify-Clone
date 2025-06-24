@@ -39,7 +39,7 @@ async function displayAlbums() {
     let anchors = div.getElementsByTagName('a');
 
     for (let e of anchors) {
-        if (e.href.includes('/songs/') && !e.href.endsWith('.mp3')) {
+        if (e.href.includes('songs/') && !e.href.endsWith('.mp3')) {
             let folder = e.href.split('/').slice(-1)[0].replace('/', '');
             try {
                 let info = await fetch(`songs/${folder}/info.json`);
