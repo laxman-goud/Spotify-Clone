@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Listen to your favorite playlists on our web music player.">
     <title>Spotify - Web Player: Music for everyone</title>
     <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
@@ -12,86 +13,103 @@
 
 <body>
     <div class="container flex bg-black">
-        <div class="left">
+        <!-- 🔥 Sidebar Left Navigation -->
+        <aside class="left">
             <div class="close">
-                <img src="img/close.svg" alt="close" class="invert cursor-pointer">
+                <img src="img/close.svg" alt="Close menu" class="invert cursor-pointer">
             </div>
-            <div class="home bg-gray rounded m-1 p-1">
-                <div class="logo"><img src="img/logo.svg" alt="logo" class="invert" style="width: 105px;"></div>
+            <nav class="home bg-gray rounded m-1 p-1">
+                <div class="logo">
+                    <img src="img/logo.svg" alt="Spotify Logo" class="invert" style="width: 105px;">
+                </div>
                 <ul>
-                    <li class="flex"><img src="img/home.svg" alt="home" class="invert">Home</li>
-                    <li class="flex"><img src="img/search.svg" alt="search" class="invert">Search</li>
+                    <li class="flex"><img src="img/home.svg" alt="Home icon" class="invert">Home</li>
+                    <li class="flex"><img src="img/search.svg" alt="Search icon" class="invert">Search</li>
                 </ul>
-            </div>
-            <div class="library bg-gray m-1 p-1 rounded">
+            </nav>
+
+            <section class="library bg-gray m-1 p-1 rounded">
                 <div class="heading">
-                    <img src="img/playlist.svg" alt="playlist" class="invert">
+                    <img src="img/playlist.svg" alt="Playlist icon" class="invert">
                     <h2>Your Library</h2>
                     <span class="cursor-pointer">+</span>
                 </div>
 
                 <div class="song-list">
                     <ul>
-
+                        <!-- 🔥 Songs will be injected here -->
                     </ul>
                 </div>
 
-                <div class="footer">
-                    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
-                    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
-                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
-                    </div>
-                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
-                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
-                    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
-                </div>
-            </div>
-        </div>
+                <footer class="footer">
+                    <div><a href="https://www.spotify.com/jp/legal/">Legal</a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/">Privacy Center</a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/">Privacy Policy</a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/">Cookies</a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3">About Ads</a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/">Accessibility</a></div>
+                </footer>
+            </section>
+        </aside>
 
-        <div class="right">
-            <div class="header flex items-center space-between">
+        <!-- 🔥 Main Player Content -->
+        <main class="right">
+            <header class="header flex items-center space-between">
                 <div class="nav">
                     <div class="hamburger cursor-pointer">
-                        <img src="img/hamburger.svg" alt="hamburger" class="invert">
+                        <img src="img/hamburger.svg" alt="Open menu" class="invert">
                     </div>
-                    <img src="img/arrow-left.svg" alt="left arrow" class="cursor-pointer">
-                    <img src="img/arrow-right.svg" alt="left arrow" class="cursor-pointer">
+                    <img src="img/arrow-left.svg" alt="Go back" class="cursor-pointer">
+                    <img src="img/arrow-right.svg" alt="Go forward" class="cursor-pointer">
                 </div>
                 <div class="buttons">
                     <button class="signupBtn">Sign Up</button>
                     <button class="loginBtn">Log In</button>
                 </div>
-            </div>
-            <div class="spotify-playlists">
+            </header>
+
+            <!-- 🔥 Spotify Album Grid -->
+            <section class="spotify-playlists">
                 <h2>Spotify Playlists</h2>
                 <div class="card-container">
-                    
+                    <!-- 🔥 Album cards will be injected here -->
                 </div>
-            </div>
-            <div class="playBar p-1">
+            </section>
+
+            <!-- 🔥 Play Bar -->
+            <footer class="playBar p-1">
                 <div class="song-info-controls flex items-center">
+                    <!-- Song Info -->
                     <div class="song-info">
                         <span class="playBar-song-name mr-4"></span>
                     </div>
+
+                    <!-- Playback Controls -->
                     <div class="song-controls flex items-center gap-4">
-                        <img src="img/prevsong.svg" alt="prevsong" class="invert cursor-pointer">
-                        <img src="img/play.svg" alt="play-pause" class="invert play-pause cursor-pointer" width="40">
-                        <img src="img/nextsong.svg" alt="nextsong" class="invert cursor-pointer">
+                        <img src="img/prevsong.svg" alt="Previous song" class="invert cursor-pointer">
+                        <img src="img/play.svg" alt="Play/Pause" class="invert play-pause cursor-pointer" width="40">
+                        <img src="img/nextsong.svg" alt="Next song" class="invert cursor-pointer">
                     </div>
+
+                    <!-- Volume & Duration -->
                     <div class="song-adjustments flex items-center gap-4">
-                        <span class="song-duration"></span>
+                        <span class="song-duration">0:00 / 0:00</span>
                         <div class="volume-adjustment flex items-center gap-2">
-                            <img src="img/volume.svg" alt="volume" class="invert volume">
-                            <input type="range" min="0" max="100" class="cursor-pointer" id="volumeControl">
+                            <img src="img/volume.svg" alt="Volume control" class="invert volume">
+                            <input type="range" min="0" max="100" value="100" class="cursor-pointer" id="volumeControl">
                         </div>
                     </div>
                 </div>
+
+                <!-- Seek Bar -->
                 <div class="seek-bar cursor-pointer">
                     <div class="circle"></div>
                 </div>
-            </div>
-        </div>
+            </footer>
+        </main>
     </div>
+
+    <!-- 🔥 JavaScript Functionality -->
     <script src="js/script.js"></script>
 </body>
 
