@@ -8,7 +8,7 @@ let audio = new Audio();
 
 // 🔥 Fetch MP3 files from specified folder
 async function getSongs(folder) {
-    let a = await fetch(`songs/${folder}`);
+    let a = await fetch(`/songs/${folder}`);
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
@@ -31,7 +31,7 @@ async function displayAlbums() {
         return;
     }
 
-    let a = await fetch(`songs`);
+    let a = await fetch(`/songs`);
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
@@ -39,10 +39,10 @@ async function displayAlbums() {
     let anchors = div.getElementsByTagName('a');
 
     for (let e of anchors) {
-        if (e.href.includes('songs/') && !e.href.endsWith('.mp3')) {
+        if (e.href.includes('/songs/') && !e.href.endsWith('.mp3')) {
             let folder = e.href.split('/').slice(-1)[0].replace('/', '');
             try {
-                let info = await fetch(`songs/${folder}/info.json`);
+                let info = await fetch(`/songs/${folder}/info.json`);
                 let responseInfo = await info.json();
 
                 cardContainer.innerHTML += `
