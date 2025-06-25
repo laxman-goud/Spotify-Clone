@@ -173,6 +173,7 @@
     overflow-y: scroll;
     width: 100%;
     overflow-x: hidden;
+    padding-bottom: 30px;
 }
 
 .spotify-playlists .card-container {

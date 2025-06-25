@@ -8,59 +8,45 @@ let audio = new Audio();
 
 // 🔥 Fetch MP3 files from specified folder
 async function getSongs(folder) {
-    let a = await fetch(`/songs/${folder}`);
-    let response = await a.text();
-    let div = document.createElement('div');
-    div.innerHTML = response;
-
-    let links = div.getElementsByTagName('a');
-    let songs = [];
-    for (let link of links) {
-        if (link.href.endsWith('.mp3')) {
-            songs.push(link.href);
-        }
+    if (!folder) {
+        console.error("Folder is undefined in getSongs");
+        return [];
     }
-    return songs;
+    try {
+        const response = await fetch(`songs/${folder}/info.json`);
+        const data = await response.json();
+        return data.songs.map(song => `songs/${folder}/${song}`);
+    } catch (err) {
+        console.error(`Error fetching info.json for ${folder}`, err);
+        return [];
+    }
 }
 
 // 🔥 Fetch album folders and display cards
 async function displayAlbums() {
     let cardContainer = document.querySelector('.card-container');
-    if (!cardContainer) {
-        // console.error('card-container not found');
-        return;
+    if (!cardContainer) return;
+
+    try {
+        const res = await fetch('songs/songs.json');
+        const albums = await res.json();
+
+        albums.forEach(album => {
+            cardContainer.innerHTML += `
+                <div data-folder="${album.folder}" class="card cursor-pointer">
+                    <div class="play-button">
+                        <img src="img/play.svg" alt="Play album">
+                    </div>
+                    <img src="${album.cover}" alt="${album.title} cover">
+                    <h3>${album.title}</h3>
+                    <p>${album.description}</p>
+                </div>`;
+        });
+
+        AlbumsListeners();
+    } catch (err) {
+        console.error("Error loading songs.json:", err);
     }
-
-    let a = await fetch(`/songs`);
-    let response = await a.text();
-    let div = document.createElement('div');
-    div.innerHTML = response;
-
-    let anchors = div.getElementsByTagName('a');
-
-    for (let e of anchors) {
-        if (e.href.includes('/songs/') && !e.href.endsWith('.mp3')) {
-            let folder = e.href.split('/').slice(-1)[0].replace('/', '');
-            try {
-                let info = await fetch(`/songs/${folder}/info.json`);
-                let responseInfo = await info.json();
-
-                cardContainer.innerHTML += `
-                    <div data-folder="${folder}" class="card cursor-pointer">
-                        <div class="play-button">
-                            <img src="img/play.svg" alt="Play album">
-                        </div>
-                        <img src="${responseInfo.cover}" alt="${responseInfo.title} cover">
-                        <h3>${responseInfo.title}</h3>
-                        <p>${responseInfo.description}</p>
-                    </div>`;
-            } catch (err) {
-                // console.warn(`Skipping ${folder}, info.json missing or invalid`);
-            }
-        }
-    }
-
-    AlbumsListeners();
 }
 
 // 🔥 Add click listeners for each album card
@@ -214,7 +200,7 @@ songControls.addEventListener('click', (e) => {
             updatePlayPauseUI(false);
             break;
 
-        case '':
+        case 'Next song':
             curSongIndex = (curSongIndex + 1) % songsList.length;
             loadSong(curSongIndex);
             audio.play();
