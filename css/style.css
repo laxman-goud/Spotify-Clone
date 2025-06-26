@@ -183,8 +183,10 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 25px 0 25px 25px;
     transition: all .5s ease;
+    padding: 22px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .spotify-playlists .card {
@@ -192,10 +194,11 @@
     border-radius: 4px;
     background-color: rgb(36 36 36);
     position: relative;
-    width: 19%;
+    width: 18%;
     transition: all .5s ease;
     flex: 1 1 230px;
-    max-width: 280px;
+    max-width: 270px;
+    min-width: 200px;
     box-sizing: border-box;
     height: 350px;
 }
@@ -210,7 +213,7 @@
 
 .card img {
     width: 100%;
-    height: 230px;
+    max-height: 230px;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -324,7 +327,12 @@
         padding-bottom: 90px;
     }
 }
-
+@media (max-width: 1400px) and (min-width: 1000px) {
+    .card-container .card{
+        max-width: 210px;
+        height: 310px;
+    }
+}
 @media (max-width: 780px) {
     .header .hamburger {
         margin-right: 25px;
@@ -348,11 +356,16 @@
 }
 
 @media (max-width: 583px) {
-    .card-container {
-        justify-content: center;
+
+    .spotify-playlists .card-container {
+        justify-content: center; 
+        margin: 25px auto;
     }
     .card-container .card {
-        min-width: 280px;
-        max-width: 80%;
+        min-width: 190px;
+        max-width: 75%;
+    }
+    .card-container .card>img{
+        height: 250px;
     }
 }
