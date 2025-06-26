@@ -359,7 +359,7 @@
 
     .spotify-playlists .card-container {
         justify-content: center; 
-        margin: 25px auto;
+        margin: 0 auto;
     }
     .card-container .card {
         min-width: 190px;
