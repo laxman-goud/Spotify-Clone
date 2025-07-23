@@ -2,7 +2,7 @@
     "folder": "cs",
     "title": "copyrighted songs",
     "description": "This are Awesome Songs",
-    "cover": "songs/cs/cover.jpg",
+    "cover": "Assets/songs/cs/cover.jpg",
     "songs": [
     "7 Years - Lukas Graham.mp3",
     "Mockingbird - Eminem.mp3",

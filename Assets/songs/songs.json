@@ -3,7 +3,7 @@
         "folder": "Angry_(mood)",
         "title": "Angry Mood",
         "description": "Calm your Anger",
-        "cover": "songs/Angry_(mood)/cover.jpg",
+        "cover": "Assets/songs/Angry_(mood)/cover.jpg",
         "songs": [
             "Apollo On The Run - Like Fire.mp3"
         ]
@@ -12,7 +12,7 @@
         "folder": "Bright_(mood)",
         "title": "Bright Songs",
         "description": "Bright Songs for you",
-        "cover": "songs/Bright_(mood)/cover.jpg",
+        "cover": "Assets/songs/Bright_(mood)/cover.jpg",
         "songs": [
             "BVSSL7ON, ANIZYZ - THE REDEEMER.mp3"
         ]
@@ -21,16 +21,16 @@
         "folder": "Chill_(mood)",
         "title": "Just Chill",
         "description": "Yes, Just Chill",
-        "cover": "songs/Chill_(mood)/cover.jpg",
+        "cover": "Assets/songs/Chill_(mood)/cover.jpg",
         "songs": [
             "youth® - stuck in my head.mp3"
         ]
     },
     {
         "folder": "cs",
-        "title": "copyrighted songs",
-        "description": "This are Awesome Songs",
-        "cover": "songs/cs/cover.jpg",
+        "title": "Copyrighted Songs",
+        "description": "These are Awesome Songs",
+        "cover": "Assets/songs/cs/cover.jpg",
         "songs": [
             "7 Years - Lukas Graham.mp3",
             "Mockingbird - Eminem.mp3",
@@ -41,7 +41,7 @@
         "folder": "Dark_(mood)",
         "title": "Dark Horse",
         "description": "Dark Songs for you",
-        "cover": "songs/Dark_(mood)/cover.jpg",
+        "cover": "Assets/songs/Dark_(mood)/cover.jpg",
         "songs": [
             "Division One, Halvorsen, JJD - Just A Minute More.mp3"
         ]
@@ -49,8 +49,8 @@
     {
         "folder": "Funky_(mood)",
         "title": "Go Funky",
-        "description": "Lets go Funky",
-        "cover": "songs/Funky_(mood)/cover.jpg",
+        "description": "Let's go Funky",
+        "cover": "Assets/songs/Funky_(mood)/cover.jpg",
         "songs": [
             "Seanyy - Ocean.mp3"
         ]
@@ -59,7 +59,7 @@
         "folder": "Love_(mood)",
         "title": "I Love You",
         "description": "Love is in the air",
-        "cover": "songs/Love_(mood)/cover.jpg",
+        "cover": "Assets/songs/Love_(mood)/cover.jpg",
         "songs": [
             "Zachz Winner - lover online.mp3"
         ]
@@ -68,16 +68,16 @@
         "folder": "Morning_Motivation",
         "title": "Morning Motivation",
         "description": "Start your day with purpose and energy.",
-        "cover": "songs/Morning_Motivation/cover.jpg",
+        "cover": "Assets/songs/Morning_Motivation/cover.jpg",
         "songs": [
             "Bad Computer - Cant Heal You.mp3"
         ]
     },
     {
         "folder": "ncs",
-        "title": "Non copyrighted songs",
-        "description": "This are Excellent Songs",
-        "cover": "songs/ncs/cover.jpg",
+        "title": "Non Copyrighted Songs",
+        "description": "These are Excellent Songs",
+        "cover": "Assets/songs/ncs/cover.jpg",
         "songs": [
             "Prong, BOTCASH, Justin OH - Ghost Of Me.mp3",
             "Warriyo, LXNGVX - Mortals Funk Remix.mp3"
@@ -87,7 +87,7 @@
         "folder": "Uplifting_(mood)",
         "title": "Get up",
         "description": "You can do it!",
-        "cover": "songs/Uplifting_(mood)/cover.jpeg",
+        "cover": "Assets/songs/Uplifting_(mood)/cover.jpeg",
         "songs": [
             "Tamlin - Alive.mp3"
         ]
@@ -96,7 +96,7 @@
         "folder": "Workout_Boost",
         "title": "Workout Boost",
         "description": "High-energy tracks to power your sessions.",
-        "cover": "songs/Workout_Boost/cover.jpeg",
+        "cover": "Assets/songs/Workout_Boost/cover.jpeg",
         "songs": [
             "Everen Maxwell - Hinterlands.mp3"
         ]

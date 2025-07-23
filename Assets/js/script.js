@@ -13,9 +13,9 @@ async function getSongs(folder) {
         return [];
     }
     try {
-        const response = await fetch(`songs/${folder}/info.json`);
+        const response = await fetch(`Assets/songs/${folder}/info.json`);
         const data = await response.json();
-        return data.songs.map(song => `songs/${folder}/${song}`);
+        return data.songs.map(song => `Assets/songs/${folder}/${song}`);
     } catch (err) {
         console.error(`Error fetching info.json for ${folder}`, err);
         return [];
@@ -28,14 +28,14 @@ async function displayAlbums() {
     if (!cardContainer) return;
 
     try {
-        const res = await fetch('songs/songs.json');
+        const res = await fetch('Assets/songs/songs.json');
         const albums = await res.json();
 
         albums.forEach(album => {
             cardContainer.innerHTML += `
                 <div data-folder="${album.folder}" class="card cursor-pointer">
                     <div class="play-button">
-                        <img src="img/play.svg" alt="Play album">
+                        <img src="Assets/img/play.svg" alt="Play album">
                     </div>
                     <img src="${album.cover}" alt="${album.title} cover">
                     <h3>${album.title}</h3>
@@ -70,13 +70,13 @@ async function AlbumsListeners() {
 
                 songsUL.innerHTML += `
                 <li >
-                    <img src="img/music.svg" alt="Music icon" class="invert">
+                    <img src="Assets/img/music.svg" alt="Music icon" class="invert">
                     <div class="music-info">
                         <div class="song-name">${name || 'Unknown'}</div>
                         <div class="song-artist">${artist || 'Unknown'}</div>
                     </div>
                     <span>Play Now</span>
-                    <img src="img/play.svg" alt="Play song" class="invert play cursor-pointer">
+                    <img src="Assets/img/play.svg" alt="Play song" class="invert play cursor-pointer">
                 </li>`;
             }
 
@@ -97,17 +97,17 @@ function attachSongPlayListeners() {
         btn.addEventListener('click', () => {
             if (curSongIndex === index && !audio.paused) {
                 audio.pause();
-                btn.src = 'img/play.svg';
+                btn.src = 'Assets/img/play.svg';
                 updatePlayPauseUI(true);
             } else {
                 if (prevBtn && prevBtn !== btn) {
-                    prevBtn.src = 'img/play.svg';
+                    prevBtn.src = 'Assets/img/play.svg';
                 }
 
                 curSongIndex = index;
                 loadSong(curSongIndex);
                 audio.play();
-                btn.src = 'img/pause.svg';
+                btn.src = 'Assets/img/pause.svg';
                 prevBtn = btn;
                 updatePlayPauseUI(false);
             }
@@ -211,7 +211,7 @@ songControls.addEventListener('click', (e) => {
 
 // 🔥 Play/pause button UI sync
 function updatePlayPauseUI(paused) {
-    const playPauseIcon = paused ? 'img/play.svg' : 'img/pause.svg';
+    const playPauseIcon = paused ? 'Assets/img/play.svg' : 'Assets/img/pause.svg';
     document.querySelectorAll('img[alt="Play/Pause"]').forEach(el => el.src = playPauseIcon);
 }
 
@@ -221,16 +221,16 @@ const volumeSlider = document.getElementById('volumeControl');
 
 volumeSlider.addEventListener('input', (e) => {
     audio.volume = e.target.value / 100;
-    volume.src = 'img/volume.svg';
+    volume.src = 'Assets/img/volume.svg';
     audio.muted = false;
 });
 
 volume.addEventListener('click', () => {
     if (volume.src.includes('volume.svg')) {
-        volume.src = 'img/mute.svg';
+        volume.src = 'Assets/img/mute.svg';
         audio.muted = true;
     } else {
-        volume.src = 'img/volume.svg';
+        volume.src = 'Assets/img/volume.svg';
         audio.muted = false;
     }
 });

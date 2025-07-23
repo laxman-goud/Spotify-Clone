@@ -7,8 +7,8 @@
     <meta name="description" content="Listen to your favorite playlists on our web music player.">
     <title>Spotify - Web Player: Music for everyone</title>
     <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="/Assets/css/style.css">
+    <link rel="stylesheet" href="/Assets/css/utility.css">
 </head>
 
 <body>
@@ -16,21 +16,21 @@
         <!-- 🔥 Sidebar Left Navigation -->
         <aside class="left">
             <div class="close">
-                <img src="img/close.svg" alt="Close menu" class="invert cursor-pointer">
+                <img src="Assets/img/close.svg" alt="Close menu" class="invert cursor-pointer">
             </div>
             <nav class="home bg-gray rounded m-1 p-1">
                 <div class="logo">
-                    <img src="img/logo.svg" alt="Spotify Logo" class="invert" style="width: 105px;">
+                    <img src="Assets/img/logo.svg" alt="Spotify Logo" class="invert" style="width: 105px;">
                 </div>
                 <ul>
-                    <li class="flex"><img src="img/home.svg" alt="Home icon" class="invert">Home</li>
-                    <li class="flex"><img src="img/search.svg" alt="Search icon" class="invert">Search</li>
+                    <li class="flex"><img src="Assets/img/home.svg" alt="Home icon" class="invert">Home</li>
+                    <li class="flex"><img src="Assets/img/search.svg" alt="Search icon" class="invert">Search</li>
                 </ul>
             </nav>
 
             <section class="library bg-gray m-1 p-1 rounded">
                 <div class="heading">
-                    <img src="img/playlist.svg" alt="Playlist icon" class="invert">
+                    <img src="Assets/img/playlist.svg" alt="Playlist icon" class="invert">
                     <h2>Your Library</h2>
                     <span class="cursor-pointer">+</span>
                 </div>
@@ -57,10 +57,10 @@
             <header class="header flex items-center space-between">
                 <div class="nav">
                     <div class="hamburger cursor-pointer">
-                        <img src="img/hamburger.svg" alt="Open menu" class="invert">
+                        <img src="Assets/img/hamburger.svg" alt="Open menu" class="invert">
                     </div>
-                    <img src="img/arrow-left.svg" alt="Go back" class="cursor-pointer">
-                    <img src="img/arrow-right.svg" alt="Go forward" class="cursor-pointer">
+                    <img src="Assets/img/arrow-left.svg" alt="Go back" class="cursor-pointer">
+                    <img src="Assets/img/arrow-right.svg" alt="Go forward" class="cursor-pointer">
                 </div>
                 <div class="buttons">
                     <button class="signupBtn">Sign Up</button>
@@ -86,16 +86,16 @@
 
                     <!-- Playback Controls -->
                     <div class="song-controls flex items-center gap-4">
-                        <img src="img/prevsong.svg" alt="Previous song" class="invert cursor-pointer">
-                        <img src="img/play.svg" alt="Play/Pause" class="invert play-pause cursor-pointer" width="40">
-                        <img src="img/nextsong.svg" alt="Next song" class="invert cursor-pointer">
+                        <img src="Assets/img/prevsong.svg" alt="Previous song" class="invert cursor-pointer">
+                        <img src="Assets/img/play.svg" alt="Play/Pause" class="invert play-pause cursor-pointer" width="40">
+                        <img src="Assets/img/nextsong.svg" alt="Next song" class="invert cursor-pointer">
                     </div>
 
                     <!-- Volume & Duration -->
                     <div class="song-adjustments flex items-center gap-4">
                         <span class="song-duration">0:00 / 0:00</span>
                         <div class="volume-adjustment flex items-center gap-2">
-                            <img src="img/volume.svg" alt="Volume control" class="invert volume">
+                            <img src="Assets/img/volume.svg" alt="Volume control" class="invert volume">
                             <input type="range" min="0" max="100" value="100" class="cursor-pointer" id="volumeControl">
                         </div>
                     </div>
@@ -110,7 +110,7 @@
     </div>
 
     <!-- 🔥 JavaScript Functionality -->
-    <script src="js/script.js"></script>
+    <script src="Assets/js/script.js"></script>
 </body>
 
 </html>
