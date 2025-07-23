@@ -117,11 +117,10 @@ function attachSongPlayListeners() {
 
 // 🔥 Main entry point
 async function main() {
+    await displayAlbums();
     songsList = await getSongs('cs');
     if (!songsList.length) return;
-
     loadSong(curSongIndex);
-    await displayAlbums();
     attachSongPlayListeners();
 
     let totalDurationFormatted = '';
