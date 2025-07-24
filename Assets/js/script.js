@@ -123,10 +123,12 @@ async function main() {
     loadSong(curSongIndex);
     attachSongPlayListeners();
 
-    let totalDurationFormatted = '';
+    let totalDurationFormatted = '0:00';
 
     audio.addEventListener("loadedmetadata", () => {
-        totalDurationFormatted = formatTime(audio.duration);
+        if(!audio.duration){
+            totalDurationFormatted = formatTime(audio.duration);
+        }
         const [name, artist] = getSongNameAndArtist(songsList[curSongIndex]);
         updatePlayBar(name, artist, `0:00 / ${totalDurationFormatted}`);
     });
