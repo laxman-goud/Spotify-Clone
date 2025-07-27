@@ -134,9 +134,11 @@ async function main() {
     });
 
     audio.addEventListener("timeupdate", () => {
-        let currentFormatted = formatTime(audio.currentTime);
-        document.querySelector('.circle').style.left = (audio.currentTime / audio.duration) * 99 + '%';
-        document.querySelector('.song-duration').innerText = `${currentFormatted} / ${formatTime(audio.duration)}`;
+        if (!isNaN(audio.duration)) {
+            let currentFormatted = formatTime(audio.currentTime);
+            document.querySelector('.circle').style.left = (audio.currentTime / audio.duration) * 99 + '%';
+            document.querySelector('.song-duration').innerText = `${currentFormatted} / ${formatTime(audio.duration)}`;
+        }
     });
 }
 
@@ -151,7 +153,8 @@ function loadSong(index) {
 
 function getSongNameAndArtist(songUrl) {
     let decoded = decodeURIComponent(songUrl.split('/').pop().replace('.mp3', ''));
-    return decoded.split(' - ');
+    const parts = decoded.split(' - ');
+    return [parts[0], parts[1] || 'Unknown'];
 }
 
 function updatePlayBar(songName, songArtist = '', initialDuration = '...') {
